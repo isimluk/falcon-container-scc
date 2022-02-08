@@ -25,11 +25,14 @@ It is recommended to consult [OpenShift Documentation](https://docs.openshift.co
 >
 > If a matching set of constraints is found, then the pod is accepted. If the request cannot be matched to an SCC, the pod is rejected. A pod must validate every field against the SCC. 
 
+After the pod is successfully accepted by SCC, following command can be used to see which particular SCC approved the given pod
+
+    kubectl get pods my-test-pod-cddc6b8fd-pw4nn -o yaml | grep openshift.io/scc:
+
 # Enabling Falcon Container operations
 
 Prior to the deployment of Falcon Container to OpenShift Container Platform, please make sure that SCC (SecurityContextConstraints)
 allow for Falcon Container requirements to be enabled in any set of the SCCs.
-
 
     runAsUser:
       type: RunAsAny
