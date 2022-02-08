@@ -48,6 +48,10 @@ After the pod is successfully accepted by SCC, following command can be used to 
 
     oc get pods my-test-pod-cddc6b8fd-pw4nn -o yaml | grep openshift.io/scc:
 
+Deploy falcon-container SCC. This SCC is copy of `restricted` SCC with Falcon Container operations allowed:
+
+    oc apply -f https://raw.githubusercontent.com/isimluk/falcon-container-scc/main/scc-falcon-container.yaml
+
 Allowing any authenticated user to use the given SCC
 
     oc adm policy add-scc-to-group <scc-name> system:authenticated
