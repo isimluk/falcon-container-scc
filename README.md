@@ -3,6 +3,13 @@
 This repository show-cases how to implement allow-listing of Falcon Container for OpenShift SCC (SecurityContextConstraints) based admission.
 If you are looking to implement OPA Gatekeeper admission instead please consult [sister repository](https://github.com/isimluk/falcon-container-opa-templates).
 
+## Error message that you may have seen
+
+If you have seen the following error message you may find this text useful.
+```
+pods "XYZ" is forbidden: unable to validate against any security context constraint: [provider "anyuid": Forbidden: not usable by user or serviceaccount, spec.containers[0].securityContext.runAsUser: Invalid value: 0: must be in the ranges: [1000970000, 1000979999], spec.containers[0].securityContext.capabilities.add: Invalid value: "SYS_PTRACE": capability may not be added, provider "nonroot": Forbidden: not usable by user or serviceaccount, provider "pcap-dedicated-admins": Forbidden: not usable by user or serviceaccount, provider "hostmount-anyuid": Forbidden: not usable by user or serviceaccount, provider "machine-api-termination-handler": Forbidden: not usable by user or serviceaccount, provider "hostnetwork": Forbidden: not usable by user or serviceaccount, provider "hostaccess": Forbidden: not usable by user or serviceaccount, provider "splunkforwarder": Forbidden: not usable by user or serviceaccount, provider "node-exporter": Forbidden: not usable by user or serviceaccount, provider "privileged": Forbidden: not usable by user or serviceaccount]
+```
+
 # Introduction - What is SCC?
 
 SecurityContextConstraints (SCCs) is OpenShift mechanism for allowing/denying pod deployments based on system level permissions that the pod requires.
